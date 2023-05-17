@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1651002917 source:c:\users\admin\documents\college\spring 2022\cs441\codeblocks projects\bouncybouncy\main.cpp
+	<GL/glut.h>
+	<iostream>
+	<cmath>
+	<vector>
+
+1643085332 c:\program files\codeblocks\mingw\include\gl\glut.h
+	"freeglut_std.h"
+
+1643085332 c:\program files\codeblocks\mingw\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
