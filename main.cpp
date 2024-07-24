@@ -2,7 +2,7 @@
  * Computer Graphics
  *
  * Program that bounces a user defined object inside
- * a user defined boundary using the OpenGL API. 
+ * a user defined boundary using the OpenGL API.
  * Additional keyboard input was added to influence
  * object movement. Also added an additional 'go crazy mode'
  * just for fun :]
@@ -106,10 +106,10 @@ void display(void)
 	glLoadIdentity();
     if (boundPoints.size() > 0)
 	// Draw boundary given there are boundary points
-        drawBoundary();			
+        drawBoundary();
     if (objPoints.size() > 0) {
 	// Draw object given there are object points
-        glColor3f(shapeColor[0], shapeColor[1], shapeColor[2]);		 
+        glColor3f(shapeColor[0], shapeColor[1], shapeColor[2]);
         if (animate) {
 	    // Begin translation and rotation of the object around the inside of the outer boundary using matrix transformations
             glTranslated(xtrans, ytrans, 0);
@@ -185,7 +185,7 @@ void idle()
         double p [4] = {0, 0, 0, 1};
         double* newp;
         bool needToBounce; 	// Flag to determine if object has hit boundary yet
-	
+
 	// Apply matrix transformation to each object point to transform and rotate entire object as necessary
         for (int i = 0; i < objPoints.size(); i++) {
             needToBounce = true;
@@ -194,7 +194,7 @@ void idle()
             newp = matrixMultiply(matrix, p);
             px = newp[0];
             py = newp[1];
-	    
+
 	    // Determine if there is a collision between the object and boundary by going through all boundary points
             for (int j = 0; j < boundPoints.size()-1; j++) {
                 nx = boundPoints[j+1][1]-boundPoints[j][1];
@@ -218,7 +218,7 @@ void idle()
                     }
                 }
 	    }
-	
+
 	    // Code for last iteration (repeat of code above in for loop)
             nx = boundPoints[0][1]-boundPoints[bn-1][1];
             ny = -1*(boundPoints[0][0]-boundPoints[bn-1][0]);
@@ -240,7 +240,7 @@ void idle()
                 }
         }
         }
-	
+
 	// Code to adjust object rotation angle and speed
         angle += angleDir*angleInc;
         if (angle >= 360.0)
@@ -320,7 +320,7 @@ void mykeyboardFunc(unsigned char key, int x, int y)
             yinc = 0.0;
         } else
             yinc = prevYInc;
-	    
+
     //Starts or stops rotation of shape
     } else if (key == 'r') {
 	// Enables or disables rotation
@@ -329,7 +329,7 @@ void mykeyboardFunc(unsigned char key, int x, int y)
             angleInc = 0.0;
         } else
             angleInc = prevAngleInc;
-	    
+
     // Exits program (quit)
     } else if (key == 'q')
         exit(-1);
@@ -349,7 +349,7 @@ void mySpecialFunc(int key, int x, int y)
             yinc -= 0.05;
         else
             yinc += 0.05;
-	    
+
     // DOWN ARROW: decrease translation (movement) speed
     } else if (key == GLUT_KEY_DOWN) {
         if (xinc <= 0.05 && xinc >= -0.05)
@@ -365,11 +365,11 @@ void mySpecialFunc(int key, int x, int y)
             yinc -= 0.05;
         else
             yinc += 0.05;
-	    
+
     // LEFT ARROW: increase rotation speed counterclockwise
     } else if (key == GLUT_KEY_LEFT) {
         angleInc += 0.05;
-	    
+
     // RIGHT ARROW: increase rotation speed clockwise
     } else if (key == GLUT_KEY_RIGHT) {
         angleInc -= 0.05;
@@ -411,7 +411,7 @@ void menu(int id)
                 }
             }
             break;
-		    
+
     // Option that allows the user to define the object, or close the object if already selected
     case 2: if (defObj) {
                 defObj = false;
@@ -429,7 +429,7 @@ void menu(int id)
                 }
             }
             break;
-		    
+
     // Option that allows the user to begin translation and rotation of the object
     case 3: if (animate)
                 animate = false;
@@ -444,7 +444,7 @@ void menu(int id)
                 animate = true;
             }
             break;
-    
+
     // Option that enables 'go crazy mode', which changes the boundary, shape, and background to random colors every time the shape hits the boundary
     case 4: if (goCrazy)
                 goCrazy = false;
@@ -475,12 +475,12 @@ int main(int argc, char **argv)
 
     // Initialize all necessary glut functions
     glutDisplayFunc(display);
-    glutIdleFunc(idle);				
-    glutMouseFunc(mouseFunc);			
+    glutIdleFunc(idle);
+    glutMouseFunc(mouseFunc);
     glutPassiveMotionFunc(myPassiveMotionFunc);
-    glutKeyboardFunc(mykeyboardFunc);		
-    glutSpecialFunc(mySpecialFunc);		
-    glutReshapeFunc(myreshape); 		
+    glutKeyboardFunc(mykeyboardFunc);
+    glutSpecialFunc(mySpecialFunc);
+    glutReshapeFunc(myreshape);
 
     createMenu();				// Initialize menu
     glutMainLoop();				// Begin display output loop
