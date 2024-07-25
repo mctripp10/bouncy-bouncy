@@ -1,5 +1,5 @@
 # Bouncy Bouncy
-OpenGL application that displays a smaller object bouncing around an outer boundary, where both object and boundary are drawn by the user. 
+OpenGL GUI application that displays a smaller object bouncing around an outer boundary, where both object and boundary are drawn by the user. 
 
 <img src="bouncy-bouncy-gif.gif" width="500">
 
