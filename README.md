@@ -4,9 +4,9 @@ OpenGL application that displays a smaller object bouncing around an outer bound
 <img src="bouncy-bouncy-gif.gif" width="500">
 
 ## Features
-- User draws their own boundary and shape
+- Drawing tool for user to draw their own boundary and shape
+- Keyboard arrow key input to modify speed and rotation of the object as it moves
 - Object translates and rotates about its center according to angle of collision
-- Keyboard arrow keys can be used to modify speed and rotation of the object as it moves
 - "Go Crazy" button for colorful fun :) (epilepsy warning***)
 
 ## Installation
